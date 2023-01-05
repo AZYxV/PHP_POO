@@ -4,6 +4,7 @@ Class Humain {
 
     public int $taille = 175;
     public string $nom;
+    private string $secret;
 
     public function __construct(string $nomDeFammille)
     {
@@ -27,10 +28,23 @@ Class Humain {
         echo "Ma taille est de ".($this->taille + 1)." cm";
     }
 
+    public function setSecret(string $secret): void
+    {
+        $this->secret=$secret;
+    }
+
+    public function getSecret(): string
+    {
+        return $this->secret;
+    }
+
 }
 
 $marcelline = new Humain('Dupont');
 $constance = new Humain('Fernand');
+
+$marcelline->setSecret("Pssstt... Ceci est un secret");
+echo $marcelline->getSecret();
 
 // Suppression de l'objet constance
 unset($constance);
