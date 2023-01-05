@@ -56,6 +56,11 @@ Class Homme extends Humain
 Class Femme extends Humain
 {
 
+    public function faireEnfant(): void
+    {
+        echo "Oui, je peux enfanter\n";
+    }
+
 }
 
 $marcelline = new Femme('Dupont');
@@ -65,6 +70,9 @@ $adam = new Homme('Bruce');
 $adam->marcher();
 $adam->maForce();
 $marcelline->maForce();
+
+$marcelline->faireEnfant();
+$constance->faireEnfant();
 
 $marcelline->setSecret("Pssstt... Ceci est un secret\n");
 echo $marcelline->getSecret();
