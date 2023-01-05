@@ -8,6 +8,13 @@ Class Humain {
     public function __construct(string $nom)
     {
         $this->nom = $nom;
+
+        echo "Je suis né.e";
+    }
+
+    public function __destruct()
+    {
+        echo  "Je suis mort.e";
     }
 
     public function marcher(): void
@@ -24,3 +31,6 @@ Class Humain {
 
 $marcelline = new Humain('marcelline');
 $constance = new Humain('Constance');
+
+// Suppression de l'objet constance
+unset($constance);
