@@ -1,6 +1,20 @@
 <?php
 
-Class Humain {
+interface Mammifere
+{
+    public function pilosite(): void;
+}
+
+trait Bipede
+{
+    public function courir(): void
+    {
+        echo "Je cours ! \n";
+    }
+}
+
+abstract Class Humain implements Mammifere
+{
 
     public static int $population = 0;
     public int $taille = 175;
@@ -8,6 +22,8 @@ Class Humain {
     public int $force = 1;
     public string $nom;
     private string $secret;
+
+    use Bipede;
 
     public function __construct(string $nomDeFammille)
     {
@@ -38,6 +54,11 @@ Class Humain {
         echo "Ma force est de ".($this->force)."\n";
     }
 
+    public function pilosite(): void
+    {
+        echo "J'ai du poil \n";
+    }
+
     public function setSecret(string $secret): void
     {
         $this->secret=$secret;
@@ -64,6 +85,11 @@ Class Femme extends Humain
         echo "Oui, je peux enfanter\n";
     }
 
+    public function pilosite(): void
+    {
+        echo "J'ai moins de poil que l'homme\n";
+    }
+
 }
 
 $marcelline = new Femme('Dupont');
@@ -79,8 +105,13 @@ $marcelline->maForce();
 $marcelline->faireEnfant();
 $constance->faireEnfant();
 
+$adam->pilosite();
+$marcelline->pilosite();
+
 $marcelline->setSecret("Pssstt... Ceci est un secret\n");
 echo $marcelline->getSecret();
+
+$marcelline->courir();
 
 // Suppression de l'objet constance
 unset($constance);
