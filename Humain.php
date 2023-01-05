@@ -10,6 +10,16 @@ Class Humain {
         $this->nom = $nom;
     }
 
+    public function marcher(): void
+    {
+        echo "Je marche";
+    }
+
+    public function maTaille(): void
+    {
+        echo "Ma taille est de ".($this->taille + 1)." cm";
+    }
+
 }
 
 $marcelline = new Humain('marcelline');
