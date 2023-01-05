@@ -5,9 +5,9 @@ Class Humain {
     public int $taille = 175;
     public string $nom;
 
-    public function __construct(string $nom)
+    public function __construct(string $nomDeFammille)
     {
-        $this->nom = $nom;
+        $this->nom = $nomDeFammille;
 
         echo "Je suis né.e";
     }
@@ -29,8 +29,8 @@ Class Humain {
 
 }
 
-$marcelline = new Humain('marcelline');
-$constance = new Humain('Constance');
+$marcelline = new Humain('Dupont');
+$constance = new Humain('Fernand');
 
 // Suppression de l'objet constance
 unset($constance);
