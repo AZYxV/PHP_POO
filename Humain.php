@@ -2,6 +2,7 @@
 
 Class Humain {
 
+    public static int $population = 0;
     public int $taille = 175;
 
     public int $force = 1;
@@ -12,11 +13,13 @@ Class Humain {
     {
         $this->nom = $nomDeFammille;
 
+        self::$population++;
         echo "Je suis né.e\n";
     }
 
     public function __destruct()
     {
+        self::$population--;
         echo  "Je suis mort.e\n";
     }
 
@@ -67,6 +70,8 @@ $marcelline = new Femme('Dupont');
 $constance = new Femme('Fernand');
 $adam = new Homme('Bruce');
 
+echo "La population actuelle est de ".Humain::$population."\n";
+
 $adam->marcher();
 $adam->maForce();
 $marcelline->maForce();
@@ -79,3 +84,5 @@ echo $marcelline->getSecret();
 
 // Suppression de l'objet constance
 unset($constance);
+
+echo "La population actuelle est de ".Humain::$population."\n";
