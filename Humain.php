@@ -3,6 +3,8 @@
 Class Humain {
 
     public int $taille = 175;
+
+    public int $force = 1;
     public string $nom;
     private string $secret;
 
@@ -10,22 +12,27 @@ Class Humain {
     {
         $this->nom = $nomDeFammille;
 
-        echo "Je suis né.e";
+        echo "Je suis né.e\n";
     }
 
     public function __destruct()
     {
-        echo  "Je suis mort.e";
+        echo  "Je suis mort.e\n";
     }
 
     public function marcher(): void
     {
-        echo "Je marche";
+        echo "Je marche\n";
     }
 
     public function maTaille(): void
     {
-        echo "Ma taille est de ".($this->taille + 1)." cm";
+        echo "Ma taille est de ".($this->taille + 1)." cm\n";
+    }
+
+    public function maForce(): void
+    {
+        echo "Ma force est de ".($this->force)."\n";
     }
 
     public function setSecret(string $secret): void
@@ -40,10 +47,26 @@ Class Humain {
 
 }
 
-$marcelline = new Humain('Dupont');
-$constance = new Humain('Fernand');
+Class Homme extends Humain
+{
+    public int $force = 2;
 
-$marcelline->setSecret("Pssstt... Ceci est un secret");
+}
+
+Class Femme extends Humain
+{
+
+}
+
+$marcelline = new Femme('Dupont');
+$constance = new Femme('Fernand');
+$adam = new Homme('Bruce');
+
+$adam->marcher();
+$adam->maForce();
+$marcelline->maForce();
+
+$marcelline->setSecret("Pssstt... Ceci est un secret\n");
 echo $marcelline->getSecret();
 
 // Suppression de l'objet constance
